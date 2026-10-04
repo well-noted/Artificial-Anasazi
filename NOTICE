@@ -1,0 +1,50 @@
+Artificial Anasazi: baseline fixes with soil and crowding variants
+==================================================================
+
+This repository contains modified versions of the Artificial Anasazi model from
+the NetLogo Models Library.
+
+Original work
+-------------
+NetLogo Artificial Anasazi model.
+Copyright 2010 Uri Wilensky.
+Stonedahl, F. and Wilensky, U. (2010). NetLogo Artificial Anasazi model.
+http://ccl.northwestern.edu/netlogo/models/ArtificialAnasazi
+Center for Connected Learning and Computer-Based Modeling, Northwestern
+University, Evanston, IL.
+Licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0
+License (see LICENSE). To inquire about commercial licenses for models from the
+Models Library, contact netlogo-commercial-admin@ccl.northwestern.edu.
+
+The model is a lightly adapted version of the NetLogo replication by Marco
+Janssen (with help of Sean Bergin and Allen Lee) of the Artificial Anasazi model
+by Jeffrey S. Dean, George J. Gumerman, Joshua M. Epstein, Robert Axtell, Alan C.
+Swedlund, Miles Parker, and Steven McCarroll. The original model was written in
+Ascape. Janssen's version is at
+https://www.comses.net/codebases/2222/releases/1.1.0/
+
+The files in data/ come with the Models Library model.
+
+Modifications
+-------------
+Copyright 2026 Thomas E. Tuoti (@well-noted).
+Released under the same license as the original work, the Creative Commons
+Attribution-NonCommercial-ShareAlike 3.0 License (see LICENSE), as that license
+requires of adaptations. The changes are described in the README of each branch
+and in the comments of each model file.
+
+Third-party notice: Ascape (BSD license)
+----------------------------------------
+The Models Library model carries the following notice for code that originates
+in the Ascape implementation. It is reproduced as it appears in the model's Info
+tab.
+
+Copyright 1998-2007 The Brookings Institution, NuTech Solutions,Inc., Metascape LLC, and contributors.  All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+* Neither the names of The Brookings Institution, NuTech Solutions,Inc. or Metascape LLC nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
