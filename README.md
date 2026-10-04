@@ -21,7 +21,8 @@ git clone --branch soil https://github.com/well-noted/Artificial-Anasazi.git
 
 The `soil`, `crowding` and `combined` branches start from `baseline`, so comparing them on GitHub (for example `baseline...soil`) shows exactly what each modification changes.
 
-<!-- MEDIA 1 (overview image or GIF): the model interface mid-run, with the zones map, the population plot (simulated vs. archaeological households) and the available-sites plot visible. -->
+<img width="808" height="550" alt="image" src="https://github.com/user-attachments/assets/6b2c330b-cfaf-4fc8-9f5c-9cef9e8c0983" />
+
 
 ## The baseline
 
