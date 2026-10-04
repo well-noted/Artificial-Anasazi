@@ -1,0 +1,40 @@
+title: Combined
+tags: Model
+caption: Combined
+order: 4
+
+! Baseline + soil + crowding, each switchable (AA4)
+
+Both modifications in one model, each behind its own switch.
+
+|!`soil-on?` |!`crowding-on?` |!Model |
+|OFF |OFF |[[Baseline]] |
+|ON |OFF |[[Soil]] |
+|OFF |ON |[[Crowding]] |
+|ON |ON |both mechanisms |
+
+The soil and crowding sliders have no effect while their switch is OFF. In the code, `soil-on?` OFF skips the soil update and makes the setup quality draw use `harvest-variance`, as the baseline does. `crowding-on?` OFF makes `crowd-cap`, the effective crowding limit, return 1. With both ON, depletion scales with the number of households working a plot. Both switches default to ON.
+
+<div class="aa-actions">
+
+[[Download (zip)|https://github.com/well-noted/Artificial-Anasazi/archive/refs/heads/combined.zip]] [[Browse the branch|https://github.com/well-noted/Artificial-Anasazi/tree/combined]] [[README|https://github.com/well-noted/Artificial-Anasazi/blob/combined/README.md]]
+
+</div>
+
+<span class="aa-small">The zip contains the model file and the `data` folder it reads. Keep them together.</span>
+
+<span class="aa-small">[[See exactly what changed|https://github.com/well-noted/Artificial-Anasazi/compare/baseline...combined]]</span>
+
+<!-- MEDIA: screenshot of the interface showing both switches, e.g. <img src="media/combined-interface.png" alt="Combined model interface"> -->
+
+!! Controls and reporters
+
+All controls and reporters from [[Baseline]], [[Soil]] and [[Crowding]] are present.
+
+!! BehaviorSpace experiments
+
+`N3-limit1`, `E3-crowding-sweep`, `E3-holdout-controls`, `E3-holdout-cell1`, `E3-holdout-cell2`, `E3-holdout-cell3` and `E3-holdout-retuned`. They leave the two switches at their interface values, so set the switches before running them. To reproduce the crowding results without soil, set `soil-on?` OFF.
+
+!! Related
+
+[[Baseline]], [[Soil]], [[Crowding]]. Code comments marked `[SOIL]` and `[CROWDING]` identify the changes.

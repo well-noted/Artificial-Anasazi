@@ -1,0 +1,14 @@
+title: $:/aa/macros
+tags: $:/tags/Macro
+
+\define aa-nav()
+<nav class="aa-nav">
+<$let here=<<currentTiddler>>>
+<$list filter="[tag[Model]sort[order]]" variable="m">
+<$link to=<<m>> class={{{ [<m>match<here>then[aa-nav-current]else[aa-nav-item]] }}}><$text text={{{ [<m>get[caption]] }}}/></$link>
+</$list>
+<$link to="Compare models" class={{{ [[Compare models]match<here>then[aa-nav-current]else[aa-nav-item]] }}}>Compare</$link>
+<$link to="Janssen CoMSES Model" class={{{ [[Janssen CoMSES Model]match<here>then[aa-nav-current]else[aa-nav-item]] }}}>Janssen's CoMSES model</$link>
+</$let>
+</nav>
+\end

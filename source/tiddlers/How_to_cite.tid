@@ -1,0 +1,11 @@
+title: How to cite
+
+! How to cite
+
+If you use these models, please cite the original model, NetLogo, and this repository.
+
+* Stonedahl, F. and Wilensky, U. (2010). NetLogo Artificial Anasazi model. http://ccl.northwestern.edu/netlogo/models/ArtificialAnasazi. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+* Wilensky, U. (1999). NetLogo. http://ccl.northwestern.edu/netlogo/. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+* Tuoti, T. E. (2026). Artificial Anasazi: baseline fixes with soil and crowding variants. https://github.com/well-noted/Artificial-Anasazi
+
+For results that depend on the replication, also cite Janssen (2009). See [[References]].

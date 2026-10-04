@@ -1,0 +1,35 @@
+title: Baseline fixes
+
+! Baseline fixes
+
+The baseline is the NetLogo Models Library version of Artificial Anasazi (Stonedahl & Wilensky 2010) converted to NetLogo 7.0.4, plus the changes below. They make the model work as intended and change results very little. In the code, comments marked `[BASELINE FIX]` and `[BASELINE]` identify them.
+
+|!Change |!Control |!What it does |
+|Uplands zone name |`uplands-fix?` (default ON) |The map loader names the arable-uplands zone "Uplands", but `calculate-yield` tested for "Upland", so those patches never received a PDSI or hydro value and sat in the middle yield class (547 kg; Janssen 2009, Table 3). OFF reproduces the published behavior. |
+|Setup base yield |`setup-yield-fix?` (default OFF) |The published setup computes base yield without `harvest-adjustment`, although Janssen (2009, section 2.11) defines base yield as y × q × Ha. ON applies it at setup. The first tick corrects the value either way, so only initial placement differs. |
+|Initial household count |none |`total-households` was never assigned in setup, so the first recorded value was 0. |
+|Carrying capacity reporting |none |The published `potential` is read before the year's harvest is recomputed, so it lags one tick. It is now measured on the current tick (Janssen 2009, section 3.3), and the published value is kept as `potential-lagged`. |
+|Seed control and instruments |`run-seed` |Reproducible runs, per-year series, extinction year, fit measures against the archaeological series, and peak-window reporters (Janssen 2009, section 4.13). Observation only. |
+
+!! Instruments
+
+None of these draws from the main random number stream.
+
+* `sim-series`, `hist-series`, `cap-series`: simulated households, archaeological households and carrying capacity for each year. Entries are stamped with the model's `year` after its end-of-year increment, so the first tick simulates 800 and is stamped 801.
+* `fit-correlation`: Pearson correlation between `sim-series` and `hist-series`. This is not in Janssen (2009).
+* `fit-l2`: root mean square difference between the same series, in households. Janssen's L² metric (section 4.6) is the sum of squared differences, and this is its root-mean-square form.
+* `extinct?` and `extinction-year`: whether and when the population reaches zero.
+* `uplands-farmers`: households farming the arable-uplands zone.
+* `peak1-capacity`, `peak2-capacity`, `peak1-population`, `peak2-population`, `peak1-historical`, `peak2-historical`: the maximum within each window, 1030 to 1130 and 1180 to 1260 (Janssen 2009, section 4.13).
+* `capacity-peak-ratio`, `population-peak-ratio`: second peak divided by first. Janssen reports no ratio. These formalize his statement that carrying capacity is the same at both peaks.
+
+!! Default parameters
+
+|!Parameter |!Default |!Source |
+|`harvest-adjustment` |0.54 |Lower end of the range Janssen explored (section 4.4) and the carrying-capacity optimum in his Table 4. His replicated-model optimum is 0.56 (section 4.11). |
+|`harvest-variance` |0.4 |Table 4. |
+|`death-age` |38 |Table 4, column 1. |
+|`fertility-ends-age` |34 |Table 4, column 1. |
+|`fertility` |0.155 |Fission probability p,,f,, of Table 2; value from Table 4, column 1. |
+
+The published defaults were harvest-adjustment 1.0, harvest-variance 0.1, death-age 30, fertility-ends-age 30 and fission probability 0.125 (Janssen 2009, Table 2). Axtell et al.'s (2002) calibration, as reported in Janssen's section 3.4, used harvest-variance 0.4 and harvest-adjustment 0.6.

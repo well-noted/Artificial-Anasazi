@@ -1,0 +1,5 @@
+title: $:/aa/NavTemplate
+tags: $:/tags/ViewTemplate
+list-after: $:/core/ui/ViewTemplate/title
+
+<$list filter="[all[current]!is[system]]" variable="ignore"><<aa-nav>></$list>

@@ -1,0 +1,95 @@
+title: Home
+
+! Artificial Anasazi
+
+Artificial Anasazi is an agent-based model of farming households in the Long House Valley, Arizona, from 800 to 1350 CE. Each household decides every year where to farm and where to settle, using its expected harvest, the location of water sources and its stored maize. Simulated household numbers are compared with the archaeological record, which shows two population peaks and no occupation after about 1300.
+
+This site collects a ''baseline'' version of the NetLogo model, with small fixes that make it work as intended, and three versions built from it that add dynamic soil quality, scarcity-driven plot sharing, or both. The model comes from the work of Dean, Gumerman, Epstein, Axtell, Swedlund, Parker and McCarroll, by way of [[Marco Janssen's NetLogo replication|Janssen CoMSES Model]] and the NetLogo Models Library.
+
+<div class="aa-cards">
+
+<div class="aa-card">
+
+<p class="aa-card-title">[[Baseline]]</p>
+
+The Models Library model with baseline fixes. Start here, and use it as the reference for the others.
+
+</div>
+
+<div class="aa-card">
+
+<p class="aa-card-title">[[Soil]]</p>
+
+Baseline plus soil quality that depletes under cultivation and recovers over time.
+
+</div>
+
+<div class="aa-card">
+
+<p class="aa-card-title">[[Crowding]]</p>
+
+Baseline plus plot sharing: households join an occupied plot only when no empty plot is left.
+
+</div>
+
+<div class="aa-card">
+
+<p class="aa-card-title">[[Combined]]</p>
+
+Both modifications, each behind its own switch. Switch both off to get the baseline.
+
+</div>
+
+</div>
+
+!! Where the models come from
+
+<div class="aa-lineage">
+
+<div class="aa-node">
+
+Original Ascape model
+
+<span class="aa-small">Dean et al. 2000; Axtell et al. 2002</span>
+
+</div>
+<div class="aa-node">
+
+[[Janssen's NetLogo replication|Janssen CoMSES Model]]
+
+<span class="aa-small">CoMSES, 2009 to 2013</span>
+
+</div>
+<div class="aa-node">
+
+NetLogo Models Library
+
+<span class="aa-small">Stonedahl & Wilensky 2010</span>
+
+</div>
+<div class="aa-node aa-node-ours">
+
+[[Baseline]]
+
+<span class="aa-small">this repository</span>
+
+</div>
+<div class="aa-node aa-node-ours">
+
+[[Soil]], [[Crowding]], [[Combined]]
+
+<span class="aa-small">this repository</span>
+
+</div>
+
+</div>
+
+!! Which version should I use?
+
+|!Version |!Soil dynamics |!Crowding |!Use it to |
+|[[Baseline]] |off |off |reproduce the published model with the fixes applied |
+|[[Soil]] |on (sliders) |off |study depletion and recovery of soil quality |
+|[[Crowding]] |off |on (sliders) |study plot sharing under land scarcity |
+|[[Combined]] |switch `soil-on?` |switch `crowding-on?` |compare all four configurations in one file |
+
+New to the model? Read [[Getting started]]. Background on the original model and what the paper found is on the [[Janssen CoMSES Model]] page.

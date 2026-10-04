@@ -1,0 +1,16 @@
+{
+  "description": "Project page for the Artificial Anasazi baseline and variants",
+  "plugins": [],
+  "themes": [
+    "tiddlywiki/vanilla",
+    "tiddlywiki/snowwhite"
+  ],
+  "build": {
+    "index": [
+      "--render",
+      "$:/core/save/all",
+      "index.html",
+      "text/plain"
+    ]
+  }
+}

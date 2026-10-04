@@ -1,0 +1,46 @@
+title: Soil
+tags: Model
+caption: Soil
+order: 2
+
+! Baseline + dynamic soil (AA2)
+
+Soil quality becomes a state variable. Each cultivated plot loses `depletion-rate` of its relative quality per year, and every plot regrows toward its setup value following Janssen (2010, eq. 4). With `depletion-rate` and `recovery-rate` at 0 and `soil-heterogeneity` equal to `harvest-variance`, results match the [[Baseline]] exactly.
+
+<div class="aa-actions">
+
+[[Download (zip)|https://github.com/well-noted/Artificial-Anasazi/archive/refs/heads/soil.zip]] [[Browse the branch|https://github.com/well-noted/Artificial-Anasazi/tree/soil]] [[README|https://github.com/well-noted/Artificial-Anasazi/blob/soil/README.md]]
+
+</div>
+
+<span class="aa-small">The zip contains the model file and the `data` folder it reads. Keep them together.</span>
+
+<span class="aa-small">[[See exactly what changed|https://github.com/well-noted/Artificial-Anasazi/compare/baseline...soil]]</span>
+
+<!-- MEDIA: screenshot with map-view = soil quality late in a run, e.g. <img src="media/soil-quality-map.png" alt="Soil quality map"> -->
+
+{{Capacity and the archaeological record}}
+
+!! Controls added
+
+|!Control |!Default |!Meaning |
+|`depletion-rate` |0 |Loss of relative soil quality per year of cultivation (slider 0 to 0.02). |
+|`recovery-rate` |0 |Maximum annual regrowth, as a fraction of the setup quality. |
+|`degradation-factor` |1 |Janssen's lambda. 0 gives logistic regrowth, so soil always recovers. Higher values suppress regrowth at low quality, which mimics erosion. |
+|`soil-heterogeneity` |0.4 |Standard deviation of the setup quality draw. The published model uses `harvest-variance` for this. |
+
+`recovery-rate` is rescaled internally so that it means the maximum annual regrowth at every `degradation-factor`. The `map-view` chooser gains a "soil quality" view. All [[Baseline]] controls are also present.
+
+!! Reporters added
+
+* `mean-farmed-quality`: mean relative soil quality over cells that have been cultivated (1 if none).
+* `dead-cells`: cells whose quality has reached zero. Zero is absorbing, so these cannot recover at any `degradation-factor`.
+* `soil-series`: mean farmed quality per year. `soil-1130` and `soil-1260` read it at those years.
+
+!! BehaviorSpace experiments
+
+`N2-control` (no soil dynamics), `E2-soil-sweep` and `E2-lowr-sweep`.
+
+!! Related
+
+[[Baseline]], [[Crowding]], [[Combined]]. Code comments marked `[SOIL]` identify the changes.

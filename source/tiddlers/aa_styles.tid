@@ -1,0 +1,35 @@
+title: $:/aa/styles
+tags: $:/tags/Stylesheet
+type: text/vnd.tiddlywiki
+
+.aa-nav { display: flex; flex-wrap: wrap; gap: 0.4em; margin: 0 0 1.2em 0; font-size: 0.9em; }
+.aa-nav a { text-decoration: none; padding: 0.2em 0.7em; border-radius: 1em; border: 1px solid <<colour tiddler-border>>; }
+.aa-nav a.aa-nav-current { background: <<colour primary>>; color: <<colour page-background>>; border-color: <<colour primary>>; }
+.aa-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1em; margin: 1em 0; }
+.aa-card { border: 1px solid <<colour tiddler-border>>; border-radius: 6px; padding: 0.2em 1em 0.6em 1em; }
+.tc-tiddler-controls button:not([class$="%2FButtons%2Fclose"]) { display: none; }
+.aa-card-title { margin: 0.7em 0 0.2em; font-size: 1.3em; font-weight: 600; }
+.aa-actions a { display: inline-block; margin: 0 0.5em 0.5em 0; padding: 0.3em 0.8em; border: 1px solid <<colour primary>>; border-radius: 4px; text-decoration: none; }
+.aa-sidenav dt { margin-top: 0.9em; font-weight: bold; color: <<colour muted-foreground>>; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; }
+.aa-sidenav ul { list-style: none; margin: 0.2em 0 0 0; padding: 0; }
+.aa-sidenav li { margin: 0.15em 0; }
+.aa-valley { margin-top: 1.4em; text-align: center; opacity: 0.85; }
+.aa-valley img { width: 38%; min-width: 90px; max-width: 150px; height: auto; }
+.aa-valley .aa-small { display: block; margin-top: 0.3em; }
+.aa-lineage { position: relative; margin: 1.4em 0 1.4em 0.6em; padding-left: 1.5em; border-left: 2px solid <<colour tiddler-border>>; display: block; }
+.aa-node { position: relative; padding: 0 0 1.2em 0; border: 0; min-width: 0; font-size: 1em; }
+.aa-node:last-child { padding-bottom: 0; }
+.aa-node::before { content: ""; position: absolute; left: calc(-1.5em - 7px); top: 0.3em; width: 10px; height: 10px; border-radius: 50%; background: <<colour page-background>>; border: 2px solid <<colour muted-foreground>>; }
+.aa-node-ours::before { background: <<colour primary>>; border-color: <<colour primary>>; }
+.aa-node p { margin: 0; line-height: 1.4; }
+.aa-node p:first-child { font-weight: 600; }
+.aa-node p:nth-child(2) { font-size: 0.85em; color: <<colour muted-foreground>>; }
+.aa-figure { margin: 1.2em 0; }
+.aa-figure img { max-width: 100%; height: auto; border-radius: 6px; }
+.aa-figure .aa-small { display: block; margin-top: 0.4em; }
+.aa-tabs .tc-tab-buttons { display: flex; flex-wrap: wrap; gap: 0.3em; margin-bottom: 0; border-bottom: 2px solid <<colour tiddler-border>>; }
+.aa-tabs .tc-tab-buttons button { border: 1px solid transparent; border-bottom: 0; border-radius: 8px 8px 0 0; padding: 0.5em 1.1em; margin-bottom: -2px; background: transparent; color: <<colour muted-foreground>>; font-weight: 600; cursor: pointer; }
+.aa-tabs .tc-tab-buttons button:hover { color: <<colour primary>>; }
+.aa-tabs .tc-tab-buttons button.tc-tab-selected { background: <<colour tiddler-background>>; color: <<colour primary>>; border-color: <<colour tiddler-border>>; border-bottom: 2px solid <<colour tiddler-background>>; }
+.aa-tabs .tc-tab-content { padding: 0.5em 0.2em 0; }
+.aa-small { font-size: 0.85em; color: <<colour muted-foreground>>; }

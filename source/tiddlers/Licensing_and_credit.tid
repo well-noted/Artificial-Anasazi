@@ -1,0 +1,15 @@
+title: Licensing and credit
+
+! Licensing and credit
+
+''The original model'' is the NetLogo Artificial Anasazi model, copyright 2010 Uri Wilensky, licensed under the [[Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License|https://creativecommons.org/licenses/by-nc-sa/3.0/]]. It adapts Marco Janssen's NetLogo replication of the Ascape model by Dean, Gumerman, Epstein, Axtell, Swedlund, Parker and McCarroll.
+
+''The modifications'' on this site are copyright 2026 Thomas E. Tuoti ([[@well-noted|https://github.com/well-noted]]) and are released under the same license, as that license requires of adaptations.
+
+''Ascape code.'' The model carries a BSD license notice (copyright 1998 to 2007 The Brookings Institution, NuTech Solutions, Inc., Metascape LLC, and contributors) for code that originates in the Ascape implementation. The notice is reproduced in the `NOTICE` file in each branch and in each model's info tab.
+
+''Janssen's release.'' The CoMSES page for Janssen's own release lists a different license (GPL-2.0). The models here derive from the NetLogo Models Library version, which is licensed as above.
+
+''NonCommercial.'' The license does not permit uses primarily intended for commercial advantage or monetary compensation. To inquire about commercial licenses for models from the Models Library, contact netlogo-commercial-admin@ccl.northwestern.edu.
+
+The full license text is the `LICENSE` file in each branch of the [[repository|https://github.com/well-noted/Artificial-Anasazi]].

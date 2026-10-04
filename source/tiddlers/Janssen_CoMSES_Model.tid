@@ -1,0 +1,36 @@
+title: Janssen CoMSES Model
+
+! Janssen's Artificial Anasazi (CoMSES)
+
+Marco Janssen's NetLogo replication of Artificial Anasazi is the source of the NetLogo Models Library version, and so of every model on this site. The Models Library page says it is a lightly adapted version of Janssen's replication, which he built with help from Sean Bergin and Allen Lee, and that its info tab is adapted from the ODD description that accompanies his model.
+
+<div class="aa-actions">
+
+[[Open the CoMSES codebase|https://www.comses.net/codebases/2222/releases/1.1.0/]] [[Read the paper (JASSS)|https://www.jasss.org/12/4/13.html]] [[Models Library entry|http://ccl.northwestern.edu/netlogo/models/ArtificialAnasazi]]
+
+</div>
+
+|!Item |!Details |
+|Codebase |Artificial Anasazi, version 1.1.0, CoMSES Computational Model Library |
+|Author |Marco Janssen, Arizona State University School of Sustainability |
+|Citation |Janssen, M. (2013, April 27). "Artificial Anasazi" (Version 1.1.0). CoMSES Computational Model Library. https://doi.org/10.25937/krp4-g724 |
+|License listed on CoMSES |GPL-2.0 |
+|Paper |Janssen, M. A. (2009). Understanding Artificial Anasazi. ''Journal of Artificial Societies and Social Simulation'' 12(4): 13. |
+
+!! The original model
+
+The model was written in Ascape by Dean, Gumerman, Epstein, Axtell, Swedlund, Parker and McCarroll (Dean et al. 2000; Axtell et al. 2002). Each agent is a household of five persons that farms one plot, lives on another cell, stores maize for up to two years, and leaves the valley if it cannot meet its 800 kg annual need. The landscape is 80 × 120 cells of 100 m, divided into zones whose yield depends on the Palmer Drought Severity Index.
+
+!! What Janssen (2009) found
+
+Janssen replicated the model in NetLogo from the Ascape source, verified against the original programmer's code, and repeated the original calibration over 18,144 parameter combinations (section 4.6). The main results:
+
+* The fit to the archaeological record depends mainly on two parameters that adjust the carrying capacity of the valley, `harvest-adjustment` and `harvest-variance` (abstract; section 4.11).
+* A null model in which population equals carrying capacity fits nearly as well. The agent behavior gives only a modest improvement (sections 4.10 and 5.1).
+* The agents act as a smoothing function: population cannot grow faster than natural reproduction, and decline is buffered by stored maize (section 5.1).
+* Carrying capacity is the same at the two population peaks (1030 to 1130 and 1180 to 1260), so a model calibrated to it overshoots the first peak and undershoots the second (section 4.13). The [[Baseline fixes]] page describes the reporters added here to measure this.
+* The original conclusion stands: the abandonment around 1300 is not explained by environmental variation alone (section 5.1). Janssen notes that this does not settle the role of long droughts (section 5.2).
+
+!! How the models on this site relate to it
+
+The [[Baseline]] keeps the Models Library model and fixes small problems so it behaves as its documentation says. [[Soil]] and [[Crowding]] add mechanisms that Janssen's discussion points toward (section 5.3 mentions social interaction and richer land-use dynamics), and [[Combined]] holds both.

@@ -1,0 +1,30 @@
+title: Getting started
+
+! Getting started
+
+# Install [[NetLogo 7.0.4|https://ccl.northwestern.edu/netlogo/download.shtml]].
+# Download the zip for the version you want from its page: [[Baseline]], [[Soil]], [[Crowding]] or [[Combined]]. The zip contains the model file and a `data` folder.
+# Unzip it and keep the `data` folder next to the model file. The model reads its map, settlement, water and climate files from `data`.
+# Open the `.nlogox` file in NetLogo, press SETUP, then GO. The run stops after 1350.
+# To repeat a run exactly, set `run-seed` before SETUP.
+
+!! Reading the interface
+
+* The population plot compares simulated households with the archaeological series.
+* The "available sites vs carrying capacity" plot shows farm sites currently available next to `potential`.
+* `map-view` switches between zones, water sources, yield and occupancy. Soil and Combined add a soil quality view.
+* `historic-view?` shows the archaeological settlements as houses sized by the number of households.
+
+!! BehaviorSpace
+
+Each model except [[Crowding]] includes experiments under Tools > BehaviorSpace. The experiment names are listed on the model pages. The experiments' constants cover the model parameters, so check the interface values (including the [[Combined]] switches) before running them.
+
+!! Code markers
+
+Comments in the code mark which parts belong to which version:
+
+|!Marker |!Meaning |
+|`[BASELINE FIX]` |corrects behavior of the published model |
+|`[BASELINE]` |seed control, measurement and reporting added to the published model |
+|`[SOIL]` |dynamic soil quality |
+|`[CROWDING]` |scarcity-driven plot sharing |

@@ -1,0 +1,15 @@
+title: Capacity and the archaeological record
+
+!! Carrying capacity and the archaeological record
+
+<div class="aa-figure">
+
+[img width=100% [Population plot from a model run|population-plot.png]]
+
+<span class="aa-small">Population plot from a model run: simulated households (red), the archaeological series (blue) and carrying capacity (gray). The horizontal axis is years since 800 CE.</span>
+
+</div>
+
+In the model, households can only settle where there are plots, so carrying capacity is a ceiling on the simulated population. The archaeological series reaches that ceiling at the first peak and passes it at the second. Janssen (2009, section 4.13) reports that capacity is the same at both peaks, while the archaeological record is higher at the second. With the windows used here (1030 to 1130 and 1180 to 1260), the second peak is 1.22 times the first (204 against 167 households).
+
+This is the reasoning behind the two variants. Soil depletion can only lower the capacity of a plot, so by itself it moves the ceiling away from the second peak. Crowding raises the effective ceiling by letting households share plots when land runs out, which moves it toward the second peak. The monitor ''resource pressure'' plots households divided by capacity, and values above 1 mark where the population has outgrown the one-household-per-plot ceiling.

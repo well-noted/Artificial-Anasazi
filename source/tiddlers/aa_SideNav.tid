@@ -1,0 +1,37 @@
+title: $:/aa/SideNav
+tags: $:/tags/SideBarSegment
+list-after: $:/core/ui/SideBarSegments/search
+
+<div class="aa-sidenav">
+
+; Start
+* [[Home]]
+* [[Getting started]]
+
+; Models
+* [[Baseline]]
+* [[Soil]]
+* [[Crowding]]
+* [[Combined]]
+* [[Compare models]]
+
+; Background
+* [[Janssen CoMSES Model]]
+* [[Capacity and the archaeological record]]
+* [[Baseline fixes]]
+* [[References]]
+
+; About
+* [[Licensing and credit]]
+* [[How to cite]]
+
+; Links
+* [[GitHub repository|https://github.com/well-noted/Artificial-Anasazi]]
+* [[Janssen on CoMSES|https://www.comses.net/codebases/2222/releases/1.1.0/]]
+* [[Janssen (2009), JASSS|https://www.jasss.org/12/4/13.html]]
+* [[NetLogo|https://ccl.northwestern.edu/netlogo/]]
+
+<div class="aa-valley">[img[Long House Valley, Arizona|valley-map.png]]
+<span class="aa-small">Long House Valley, Arizona, as mapped in the model</span></div>
+
+</div>

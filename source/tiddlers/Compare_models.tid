@@ -1,0 +1,7 @@
+title: Compare models
+
+! Compare the models
+
+Switch between the four versions without opening separate pages. Each tab shows the full page for that model.
+
+<<tabs "[tag[Model]sort[order]]" "Baseline" "$:/state/aa/compare" "aa-tabs">>

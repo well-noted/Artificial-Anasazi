@@ -1,0 +1,44 @@
+title: Baseline
+tags: Model
+caption: Baseline
+order: 1
+
+! Baseline (AA1)
+
+The NetLogo Models Library version of Artificial Anasazi (Stonedahl & Wilensky 2010) converted to NetLogo 7.0.4, with small fixes that make the model work as intended. The fixes change results very little. They give modifications a reference point that does what the model's documentation says it does, and the other three versions are built from it.
+
+<div class="aa-actions">
+
+[[Download (zip)|https://github.com/well-noted/Artificial-Anasazi/archive/refs/heads/baseline.zip]] [[Browse the branch|https://github.com/well-noted/Artificial-Anasazi/tree/baseline]] [[README|https://github.com/well-noted/Artificial-Anasazi/blob/baseline/README.md]]
+
+</div>
+
+<span class="aa-small">The zip contains the model file and the `data` folder it reads. Keep them together.</span>
+
+<!-- MEDIA: screenshot of the interface after SETUP, e.g. <img src="media/baseline-interface.png" alt="Baseline model interface"> -->
+
+!! What changed from the published model
+
+See [[Baseline fixes]] for the full list: the uplands zone name, the setup base yield, the initial household count, carrying capacity reporting, and seed control with observation-only instruments.
+
+!! Controls
+
+|!Control |!Default |!Meaning |
+|`harvest-adjustment` |0.54 |Fraction of the harvest kept (Ha in Janssen 2009). |
+|`harvest-variance` |0.4 |Spatial and annual variability of harvest. |
+|`death-age` |38 |Maximum household age. |
+|`fertility-ends-age` |34 |Maximum age at which a household can fission. |
+|`fertility` |0.155 |Annual fission probability. |
+|`uplands-fix?` |ON |Corrects the arable-uplands zone name. OFF reproduces the published model. |
+|`setup-yield-fix?` |OFF |Applies `harvest-adjustment` to base yield at setup. |
+|`historic-view?` |ON |Shows archaeological settlements. |
+|`map-view` |zones |zones, water sources, yield or occupancy. |
+|`run-seed` |1 |Random seed, applied right after `clear-all`. |
+
+!! BehaviorSpace experiments
+
+`E1-uplands`, `E1-replicates`, `E1-setup-yield`, `E1-ofat-harvest-adjustment` and `E1-ofat-harvest-variance`, under Tools > BehaviorSpace.
+
+!! Related
+
+[[Soil]], [[Crowding]] and [[Combined]] are built from this version. For the original model, see [[Janssen's CoMSES release|Janssen CoMSES Model]].
