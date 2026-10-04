@@ -1,80 +1,62 @@
-# Artificial Anasazi: baseline
+# Artificial Anasazi: baseline + crowding
 
-`AA1-Baseline.nlogox` is the NetLogo Models Library version of Artificial Anasazi (Stonedahl & Wilensky 2010) converted to NetLogo 7.0.4, with small fixes that make the model work as intended. The `soil`, `crowding` and `combined` branches of this repository are built from it.
+`AA3-Crowding.nlogox` adds scarcity-driven plot sharing to the baseline version of the Artificial Anasazi model (see the [`baseline`](../../tree/baseline) branch). With `crowding-limit` = 1 it reproduces the baseline.
 
-The model simulates household-level farming and settlement in the Long House Valley, Arizona, from 800 to 1350 CE, and compares simulated household numbers with the archaeological record. It follows Janssen's (2009) NetLogo replication of the original Ascape model (Dean et al. 2000; Axtell et al. 2002).
+## The baseline
 
-<!-- MEDIA 1 (screenshot): full interface after SETUP, map-view = zones, historic-view? on. -->
+The baseline is the NetLogo Models Library version (Stonedahl & Wilensky 2010) converted to NetLogo 7.0.4, with small fixes that make the model work as intended: the arable-uplands zone name (`uplands-fix?`), the setup base yield (`setup-yield-fix?`), the initial household count, one-tick-lag capacity reporting, and seed control with observation-only instruments. The fixes change results very little. Details are in the `baseline` README and in code comments marked `[BASELINE FIX]` and `[BASELINE]`.
+
+## What this version adds
+
+In the published model each plot belongs to one household (Janssen 2009, section 2.14). Here, when no empty plot is available anywhere, a relocating or newly formed household may join an occupied plot, up to `crowding-limit` households, if its share of the plot's output still meets the 800 kg nutrition need. Households therefore accept crowding only as land runs out. Code comments mark these changes `[CROWDING]`.
+
+A plot worked by n households produces base-yield × n^alpha, so each household's share is base-yield × n^(alpha − 1). A plot can admit n households only if
+
+    base-yield >= need × n^(1 − alpha)
+
+| Control | Default | Meaning |
+|---|---|---|
+| `crowding-limit` | 1 | Maximum households per plot (slider 1 to 4). 1 is the published one-household-per-plot rule. |
+| `intensification-return` | 0.5 | alpha, the exponent on labor (slider 0 to 1). alpha = 1 means no diminishing returns, and alpha < 1 means each added household yields less. |
+
+Occupancy of a plot becomes a count instead of a 0/1 flag. A household releases its plot only if it actually holds one, which keeps the count correct when households die or relocate. Settlement placement still excludes farmed land, as in the published model.
+
+<!-- MEDIA 1 (screenshot): interface with crowding-limit > 1 and map-view = occupancy, showing shared plots. -->
+<!-- MEDIA 2 (GIF): a run with crowding-limit = 2 or 3. Add a monitor for mean-crowding first (the interface has none by default). -->
 
 ## Running it
 
 1. Install NetLogo 7.0.4 from https://ccl.northwestern.edu/netlogo/.
-2. Keep the `data/` folder next to `AA1-Baseline.nlogox`. The model reads its map, settlement, water and climate files from `data/`.
-3. Open the model, press SETUP, then GO. The run stops after 1350.
+2. Keep the `data/` folder next to `AA3-Crowding.nlogox`.
+3. Open the model, press SETUP, then GO. Set `run-seed` first to repeat a run.
 
-Set `run-seed` before SETUP to repeat a run exactly.
+The baseline controls (`harvest-adjustment` 0.54, `harvest-variance` 0.4, `death-age` 38, `fertility-ends-age` 34, `fertility` 0.155, `uplands-fix?`, `setup-yield-fix?`) and their sources in Janssen (2009) are described in the `baseline` README.
 
-<!-- MEDIA 2 (GIF): one run from 800 to 1350 with map-view = occupancy, showing households spreading and the collapse after 1300. -->
+## Reporters added for crowding
 
-## What the baseline changes
+* `plot-capacity` (patch reporter): households a plot can feed, from the admission condition above.
+* `potential-crowded`: crowding-adjusted carrying capacity. Equal to `potential` when `crowding-limit` = 1. `capc-series` holds it per year.
+* `mean-crowding`, `max-crowding`: mean and maximum households per occupied plot. 1.0 means no crowding occurred.
+* `peak1-crowded`, `peak2-crowded`, `crowded-peak-ratio`: the peak-window measures of Janssen (2009, section 4.13), applied to `capc-series`.
+* `plot-share` (reporter with a plot argument): a household's share of that plot's output.
 
-| Change | Control | Effect |
-|---|---|---|
-| Uplands zone name | `uplands-fix?` (default ON) | The map loader names the arable-uplands zone "Uplands", but `calculate-yield` tested for "Upland", so those patches never received a PDSI or hydro value and sat in the middle yield class (547 kg; Janssen 2009, Table 3). OFF reproduces the published behavior. |
-| Setup base yield | `setup-yield-fix?` (default OFF) | The published setup computes base yield without `harvest-adjustment` (Janssen 2009, section 2.11 defines it as y × q × Ha). ON applies it at setup. The first tick corrects the value in either case, so only initial placement differs. |
-| Initial household count | none | `total-households` was never assigned in setup, so the first recorded value was 0. |
-| Carrying capacity reporting | none | The published `potential` is read before the year's harvest is recomputed, so it lags one tick. `potential` is now measured on the current tick (Janssen 2009, section 3.3) and the published value is kept as `potential-lagged`. |
-| Seed control and instruments | `run-seed` | Described below. |
-
-Code comments mark these as `[BASELINE FIX]` (corrects behavior) and `[BASELINE]` (seeding, measurement, reporting).
-
-## Controls
-
-| Control | Default | Meaning |
-|---|---|---|
-| `harvest-adjustment` | 0.54 | Fraction of the harvest kept (Ha in Janssen 2009). 0.54 is the lower end of the range he explored (section 4.4) and the carrying-capacity optimum in his Table 4. His replicated-model optimum is 0.56 (section 4.11). |
-| `harvest-variance` | 0.4 | Spatial and annual variability of harvest (Table 4). |
-| `death-age` | 38 | Maximum household age (Table 4, column 1). |
-| `fertility-ends-age` | 34 | Maximum age at which a household can fission (Table 4, column 1). |
-| `fertility` | 0.155 | Annual fission probability, p_f in Janssen's Table 2 (Table 4, column 1). |
-| `uplands-fix?`, `setup-yield-fix?` | ON, OFF | See above. |
-| `historic-view?` | ON | Show archaeological settlements. |
-| `map-view` | zones | zones, water sources, yield or occupancy. |
-| `run-seed` | 1 | Random seed, applied right after `clear-all`. |
-
-The published defaults were harvest-adjustment 1.0, harvest-variance 0.1, death-age 30, fertility-ends-age 30 and fission probability 0.125 (Janssen 2009, Table 2). Axtell et al.'s (2002) calibration, as reported in section 3.4, used harvest-variance 0.4 and harvest-adjustment 0.6.
-
-## Reporters
-
-For BehaviorSpace and monitors. None of them draws from the main random number stream.
-
-* `sim-series`, `hist-series`, `cap-series`: simulated households, archaeological households and carrying capacity for each year, stamped with the model's `year` after its end-of-year increment (the first tick simulates 800 and is stamped 801).
-* `fit-correlation`: Pearson correlation between `sim-series` and `hist-series`. Not in Janssen (2009).
-* `fit-l2`: root mean square difference between the same series, in households. Janssen's L² metric (section 4.6) is the sum of squared differences. This is its root-mean-square form.
-* `extinct?`, `extinction-year`: whether and when the population reaches zero.
-* `uplands-farmers`: households farming the arable-uplands zone.
-* `peak1-capacity`, `peak2-capacity`, `peak1-population`, `peak2-population`, `peak1-historical`, `peak2-historical`: the maximum within each window, 1030 to 1130 and 1180 to 1260 (Janssen 2009, section 4.13).
-* `capacity-peak-ratio`, `population-peak-ratio`: second peak divided by first. Janssen reports no ratio. These formalize his statement that capacity is the same at both peaks.
-
-<!-- MEDIA 3 (screenshot): the "available sites vs carrying capacity" plot and the population plot from a single run, showing the two peaks. -->
+All baseline reporters (`fit-correlation`, `fit-l2`, `extinction-year`, the peak and ratio reporters) are also present.
 
 ## BehaviorSpace experiments
 
-Included under Tools > BehaviorSpace: `E1-uplands`, `E1-replicates`, `E1-setup-yield`, `E1-ofat-harvest-adjustment` and `E1-ofat-harvest-variance`.
+This branch includes none. The crowding experiments are on the [`combined`](../../tree/combined) branch, where they can be run with `soil-on?` OFF.
 
 <!-- FINDINGS: hidden until the experiments are rerun. Verify against the analysis notebook, link the notebook or report, then uncomment.
 
 ## Findings from the accompanying analysis
 
 
-* With `uplands-fix?` ON, arable-uplands plot-years per run rise from 13 to 86. Population is unchanged (paired difference in correlation 0.003 ± 0.014), because the population sits at carrying capacity and the fix adds about 1.5 farmable patches.
-* About 2% of baseline runs go extinct early (4 of 200 seeds).
-* `harvest-adjustment` 0.56 fits better than 0.54 (correlation +0.019, RMS error −6.3 households) with no new mechanism.
-* Carrying capacity is identical at the two peaks for every `harvest-adjustment` and `harvest-variance` value (ratio exactly 1), as Janssen (2009, section 4.13) describes. The archaeological peak ratio with these windows is 1.22 (204/167).
+* An earlier apparent improvement of 2.7 standard deviations came from excluding an extinct run and using the spread of seeds 1 to 10. On holdout seeds the best cell (`crowding-limit` 2, `intensification-return` 0.9, no soil depletion) gave a correlation of 0.835 against 0.844 for the baseline retuned to `harvest-adjustment` 0.56.
+* The peak ratio stays near 1 for `intensification-return` below 1.
 -->
-<!-- MEDIA 4 (plot): simulated household trajectories for 30 seeds against the archaeological series (E1-replicates). -->
-<!-- MEDIA 5 (plot): uplands-farmers over time with uplands-fix? ON vs OFF (E1-uplands). -->
-<!-- MEDIA 6 (plot): fit-correlation and fit-l2 against harvest-adjustment (E1-ofat-harvest-adjustment). -->
+<!-- MEDIA 3 (plot): potential vs potential-crowded over time for crowding-limit 1, 2 and 4. -->
+<!-- MEDIA 4 (plot): heatmap of fit-correlation over crowding-limit x intensification-return (E3-crowding-sweep, run from the combined branch with soil-on? OFF). -->
+<!-- MEDIA 5 (plot): holdout-seed comparison of the best crowding cell and the retuned baseline. -->
 
 ## More
 
